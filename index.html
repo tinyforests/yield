@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Turn your garden into income. Yield enables homeowners to receive support for the ecological value their gardens create.">
+    <title>Yield — Turn your garden into income</title>
+    
+    <!-- Updated: 2025-01-01 Large Yield Logo v3 -->
+    
+    <!-- Google Fonts: Fraunces (Display) + Inter (Body/System) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@100;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* ============================================
+           TYPOGRAPHY SYSTEM
+           ============================================ */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #2a2a2a;
+            background: #fff0dc; /* nostalgic beige */
+        }
+        
+        /* Fraunces: Display typeface for YIELD logotype and hero headline only */
+        .display {
+            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        
+        strong.display {
+            font-weight: 700;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #3d4535; /* Gardener green */
+        }
+        
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #3d4535;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+            max-width: 65ch;
+        }
+        
+        /* ============================================
+           LAYOUT SYSTEM
+           ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(61, 69, 53, 0.1);
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 0;
+            background: linear-gradient(to bottom, #fff0dc 0%, #faf5e8 100%);
+            overflow: visible;
+        }
+        
+        .logo {
+            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+            font-optical-sizing: auto;
+            font-size: 25vw;
+            letter-spacing: 0.05em;
+            color: #3d4535;
+            margin-bottom: 3rem;
+            font-weight: 800 !important;
+            line-height: 0.9;
+            max-width: 100vw;
+        }
+        
+        .hero h1 {
+            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+            font-size: 2.75rem;
+            color: #2a2a2a;
+            margin-bottom: 1.5rem;
+            font-weight: 100;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #5a5a5a;
+            max-width: 40ch;
+            margin: 0 auto 3rem;
+        }
+        
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #fff0dc;
+            background: #3d4535;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+        
+        .btn:hover {
+            background: #2d3428;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(61, 69, 53, 0.2);
+        }
+        
+        /* ============================================
+           CONTENT SECTIONS
+           ============================================ */
+        .section-header {
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.1em;
+            color: #3d4535;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .insight, .what-yield-means, .trust, .final-cta {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* ============================================
+           HOW IT WORKS
+           ============================================ */
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.4);
+            border-left: 3px solid #3d4535;
+        }
+        
+        .step h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .step p {
+            margin-bottom: 0;
+            color: #4a4a4a;
+        }
+        
+        /* ============================================
+           YIELD TYPES
+           ============================================ */
+        .yield-types {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .yield-type h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .yield-type p {
+            margin-bottom: 0;
+            color: #4a4a4a;
+            font-size: 0.95rem;
+        }
+        
+        /* ============================================
+           BENEFITS (TWO COLUMNS)
+           ============================================ */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+        
+        .benefit-column {
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .benefit-column h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-column ul {
+            list-style: none;
+        }
+        
+        .benefit-column li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a4a4a;
+            line-height: 1.5;
+        }
+        
+        .benefit-column li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #3d4535;
+        }
+        
+        /* ============================================
+           FINAL CTA
+           ============================================ */
+        .final-cta {
+            text-align: center;
+            padding: 6rem 0;
+        }
+        
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.125rem;
+            color: #5a5a5a;
+            margin: 0 auto 2.5rem;
+        }
+        
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            color: #7a7a7a;
+            font-size: 0.875rem;
+            border-top: 1px solid rgba(61, 69, 53, 0.1);
+        }
+        
+        footer a {
+            color: #3d4535;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ============================================
+           RESPONSIVE BREAKPOINTS
+           ============================================ */
+        
+        /* Tablet */
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .logo {
+                font-size: 22vw;
+            }
+            
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .yield-types {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Desktop */
+        @media (min-width: 1024px) {
+            section {
+                padding: 6rem 0;
+            }
+            
+            .hero {
+                padding: 8rem 0;
+            }
+            
+            .logo {
+                font-size: 20vw;
+            }
+            
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .steps {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+            
+            .step {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="logo">Yield</h1>
+            <h1 class="display">Turn your garden into income.</h1>
+            <p>The ecological value your garden can create can now support you.</p>
+            <a href="#how-it-works" class="btn">Learn how it works</a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         THE INSIGHT
+         ============================================ -->
+    <section class="insight">
+        <div class="container">
+            <div class="section-header">The Insight</div>
+            <p>All urban gardens hold the potential to unlock real ecological value — habitat for native species, cooler streets, healthier soil, canopy cover.</p>
+            <p>But without measurement, recognition, and support, that potential remains unrealised.</p>
+            <p><strong class="display">Yield changes that.</strong></p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHAT "YIELD" MEANS
+         ============================================ -->
+    <section class="what-yield-means">
+        <div class="container">
+            <div class="section-header">What "Yield" Means</div>
+            <p>Yield is the annual return you receive when the ecological outcomes your garden delivers are supported by sponsors.</p>
+            <p>It's not an offset. It's not a donation. It's recognition of value you're already creating — and an incentive to create more.</p>
+            <p>Sponsors fund gardens that deliver real, local ecological outcomes. You receive that support, year after year, as long as those outcomes continue.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         HOW IT WORKS
+         ============================================ -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-header">How It Works</div>
+            <div class="steps">
+                <div class="step">
+                    <h3>1. Discover</h3>
+                    <p>Find out what ecological value your garden already produces.</p>
+                </div>
+                <div class="step">
+                    <h3>2. Improve</h3>
+                    <p>Work with your garden to increase habitat, canopy, or pollinator support — at your own pace.</p>
+                </div>
+                <div class="step">
+                    <h3>3. Activate</h3>
+                    <p>Choose to make your garden's outcomes available to sponsors seeking local ecological impact.</p>
+                </div>
+                <div class="step">
+                    <h3>4. Receive</h3>
+                    <p>Get annual income or in-kind support while your garden continues to perform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHAT CAN GENERATE YIELD
+         ============================================ -->
+    <section>
+        <div class="container">
+            <div class="section-header">What Can Generate Yield</div>
+            <div class="yield-types">
+                <div class="yield-type">
+                    <h3>Habitat</h3>
+                    <p>Indigenous plants that support local bird, insect, and animal species.</p>
+                </div>
+                <div class="yield-type">
+                    <h3>Pollinators</h3>
+                    <p>Flowering natives that sustain bees, butterflies, and other essential species.</p>
+                </div>
+                <div class="yield-type">
+                    <h3>Canopy</h3>
+                    <p>Trees and shrubs that provide measurable shade, cooling, and carbon storage.</p>
+                </div>
+                <div class="yield-type">
+                    <h3>Cooling</h3>
+                    <p>Vegetation that reduces urban heat and improves neighbourhood climate.</p>
+                </div>
+                <div class="yield-type">
+                    <h3>Soil</h3>
+                    <p>Healthy, living ground cover that supports water retention and biodiversity below the surface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BENEFITS (HOMEOWNERS + SPONSORS)
+         ============================================ -->
+    <section>
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-column">
+                    <h2>For Homeowners</h2>
+                    <p style="margin-bottom: 1.5rem; color: #5a5a5a;">Designed to be simple, voluntary, and low-risk.</p>
+                    <ul>
+                        <li>No upfront cost to participate</li>
+                        <li>You retain full control and privacy</li>
+                        <li>Annual income or support for as long as ecological outcomes are maintained</li>
+                        <li>Better garden outcomes through design guidance and plant selection</li>
+                        <li>Your property remains entirely yours</li>
+                    </ul>
+                </div>
+                <div class="benefit-column">
+                    <h2>For Sponsors</h2>
+                    <p style="margin-bottom: 1.5rem; color: #5a5a5a;">Designed for real, place-based ecological impact.</p>
+                    <ul>
+                        <li>Real, verifiable ecological outcomes in specific neighbourhoods</li>
+                        <li>Transparency through independent verification systems</li>
+                        <li>Direct connection to the places and people you're supporting</li>
+                        <li>Tangible impact, not abstract offsets or credits</li>
+                        <li>Long-term relationships with measurable results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TRUST & VERIFICATION
+         ============================================ -->
+    <section class="trust">
+        <div class="container">
+            <div class="section-header">Trust & Verification</div>
+            <p>Every garden that generates Yield is independently verified through The Ecological Registry.</p>
+            <p>Outcomes are measured against Ecological Registry standards and recorded annually. Your address and personal details remain private. Participation is entirely voluntary and can be paused or ended at any time.</p>
+            <p>You decide what information is shared, and with whom.</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FINAL CTA
+         ============================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Begin</h2>
+            <p>If your garden creates ecological value — or could — it can now generate yield.</p>
+            <p>This isn't theoretical. It's already happening.</p>
+            <a href="#" class="btn">Explore your garden's potential</a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <div class="container">
+            <p>Yield is part of the <a href="#">Gardener & Son</a> ecological garden ecosystem.</p>
+            <p>2 Churchill Street, Mont Albert 3127</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll polyfill for older browsers
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
