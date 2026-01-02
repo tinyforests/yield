@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Turn your garden into passive income. Yield enables homeowners to receive support for the ecological value their gardens create.">
-    <title>Yield — Turn your garden into passive income</title>
+    <meta name="description" content="Turn your garden into income. Yield enables homeowners to receive support for the ecological value their gardens create.">
+    <title>Yield — Turn your garden into income</title>
     
-    <!-- Updated: v2 with animations -->
-    
-    <!-- Google Fonts: Fraunces (Display) + Inter (Body/System) -->
+    <!-- Google Fonts: Fraunces -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100;0,400;0,600;0,700;0,800;1,100&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100;0,400;0,600;0,700;0,800;1,100&display=swap" rel="stylesheet">
     
     <style>
-        /* ============================================
-           RESET & BASE
-           ============================================ */
         * {
             margin: 0;
             padding: 0;
@@ -29,225 +24,342 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* ============================================
-           TYPOGRAPHY SYSTEM
-           ============================================ */
         body {
-            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-size: 16px;
             line-height: 1.6;
             color: #2a2a2a;
-            background: #fff0dc; /* nostalgic beige */
+            background: #fff0dc;
             overflow-x: hidden;
         }
         
-        /* Fraunces: Display typeface for YIELD logotype and hero headline only */
-        .display {
-            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-            font-optical-sizing: auto;
-            font-weight: 700;
-            letter-spacing: 0.02em;
+        /* ============================================
+           SECTION NAVIGATION
+           ============================================ */
+        .section-nav {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
         
-        strong.display {
-            font-weight: 700;
+        .section-nav-item {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #7a7a7a;
+            text-align: right;
+            opacity: 0.4;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
         
+        .section-nav-item.active {
+            opacity: 1;
+            color: #3d4535;
+            transform: translateX(-4px);
+        }
+        
+        .section-nav-item:hover {
+            opacity: 1;
+            color: #3d4535;
+        }
+        
+        /* Hide on mobile */
+        @media (max-width: 768px) {
+            .section-nav {
+                display: none;
+            }
+        }
+        
+        /* ============================================
+           FULL HEIGHT SECTIONS
+           ============================================ */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
         h1, h2, h3 {
             font-weight: 600;
             line-height: 1.2;
         }
         
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        h2 {
-            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            color: #3d4535; /* Gardener green */
-        }
-        
-        h3 {
-            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: #3d4535;
-        }
-        
         p {
-            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
             font-weight: 100;
-            margin-bottom: 1.25rem;
-            max-width: 65ch;
-        }
-        
-        /* ============================================
-           LAYOUT SYSTEM
-           ============================================ */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        section {
-            padding: 4rem 0;
-            border-bottom: 1px solid rgba(61, 69, 53, 0.1);
-            position: relative;
-        }
-        
-        section:last-of-type {
-            border-bottom: none;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
         
         /* ============================================
            HERO SECTION
            ============================================ */
         .hero {
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 0;
             background: linear-gradient(to bottom, #fff0dc 0%, #faf5e8 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(61, 69, 53, 0.03) 0%, transparent 70%);
-            animation: floatSlow 20s ease-in-out infinite;
+            text-align: center;
         }
         
         .logo {
             font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
             font-optical-sizing: auto;
             font-size: 21.25vw !important;
+            font-weight: 800 !important;
             letter-spacing: -0.02em;
             color: #3d4535;
-            margin-bottom: 3rem;
-            font-weight: 800 !important;
             line-height: 0.9;
             max-width: 100vw;
-            position: relative;
+            margin-bottom: 2rem;
             opacity: 0;
-            transform: translateY(30px);
             animation: fadeInUp 1s ease-out 0.2s forwards;
         }
         
         .hero h1 {
             font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
             font-size: 2.34rem;
-            color: #2a2a2a;
-            margin-bottom: 1.5rem;
             font-weight: 100;
+            color: #2a2a2a;
+            margin-bottom: 2rem;
             opacity: 0;
-            transform: translateY(30px);
             animation: fadeInUp 1s ease-out 0.4s forwards;
         }
         
         .hero p {
             font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
             font-size: 1.25rem;
-            color: #5a5a5a;
-            max-width: 40ch;
-            margin: 0 auto 3rem;
             font-weight: 100;
             font-style: italic;
+            color: #5a5a5a;
+            max-width: 50ch;
+            margin: 0 auto 3rem;
             opacity: 0;
-            transform: translateY(30px);
             animation: fadeInUp 1s ease-out 0.6s forwards;
         }
         
-        .hero .btn {
+        /* ============================================
+           SCROLL ARROW
+           ============================================ */
+        .scroll-arrow {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #3d4535;
+            text-decoration: none;
             opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease-out 0.8s forwards;
+            animation: fadeInUp 1s ease-out 0.8s forwards, bounce 2s ease-in-out 1.8s infinite;
+            transition: transform 0.3s ease;
+        }
+        
+        .scroll-arrow:hover {
+            transform: translateY(4px);
+        }
+        
+        .arrow-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+        
+        .arrow-center {
+            text-align: center;
+            margin-top: 2rem;
         }
         
         /* ============================================
-           CALLOUT SECTION
+           TEXT BACKGROUND SECTIONS
            ============================================ */
-        .callout {
+        .text-bg-section {
             background: #3d4535;
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .callout::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -10%;
-            width: 120%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="rgba(255,240,220,0.03)" d="M0,0 Q300,60 600,30 T1200,0 L1200,120 L0,120 Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-        }
-        
-        .callout .container {
-            max-width: 900px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .callout p {
             color: #fff0dc;
-            font-size: 1.35rem;
-            line-height: 1.7;
-            max-width: 100%;
+        }
+        
+        .text-bg-section .container {
+            text-align: center;
+        }
+        
+        .text-bg-section p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            max-width: 50ch;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .text-bg-section p:last-of-type {
             margin-bottom: 0;
         }
         
         /* ============================================
-           BUTTONS
+           CONTENT SECTIONS
+           ============================================ */
+        .content-section {
+            background: #fff0dc;
+        }
+        
+        .content-section.alt {
+            background: #faf5e8;
+        }
+        
+        .content-section.text-center .container {
+            text-align: center;
+        }
+        
+        .content-section h2 {
+            font-size: 2.5rem;
+            color: #3d4535;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .content-section p {
+            font-size: 1.125rem;
+            max-width: 65ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ============================================
+           STEPS GRID
+           ============================================ */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-left: 3px solid #3d4535;
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .step h3 {
+            font-size: 1.25rem;
+            color: #3d4535;
+            margin-bottom: 0.75rem;
+        }
+        
+        .step p {
+            font-size: 1rem;
+            color: #4a4a4a;
+            margin-bottom: 0;
+        }
+        
+        /* ============================================
+           YIELD TYPES
+           ============================================ */
+        .yield-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .yield-item h3 {
+            font-size: 1.125rem;
+            color: #3d4535;
+            margin-bottom: 0.5rem;
+        }
+        
+        .yield-item p {
+            font-size: 0.95rem;
+            color: #4a4a4a;
+            margin-bottom: 0;
+        }
+        
+        /* ============================================
+           BENEFITS
+           ============================================ */
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-box {
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .benefit-box h3 {
+            font-size: 1.75rem;
+            color: #3d4535;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-box .subtitle {
+            font-size: 1rem;
+            color: #5a5a5a;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-box ul {
+            list-style: none;
+        }
+        
+        .benefit-box li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a4a4a;
+        }
+        
+        .benefit-box li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #3d4535;
+        }
+        
+        /* ============================================
+           BUTTON
            ============================================ */
         .btn {
             display: inline-block;
             padding: 1rem 2.5rem;
             font-size: 1rem;
+            font-weight: 600;
             text-decoration: none;
             color: #fff0dc;
             background: #3d4535;
             border: none;
             border-radius: 2px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 600;
+            transition: all 0.3s ease;
             letter-spacing: 0.02em;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
         
         .btn:hover {
@@ -257,183 +369,41 @@
         }
         
         /* ============================================
-           CONTENT SECTIONS
+           FOOTER
            ============================================ */
-        .section-header {
-            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-            text-transform: uppercase;
-            font-size: 0.875rem;
-            letter-spacing: 0.1em;
-            color: #3d4535;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 2px;
+        footer {
             background: #3d4535;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            color: #fff0dc;
+            padding: 4rem 2rem;
+            text-align: center;
         }
         
-        .section-header.visible::after {
-            transform: scaleX(1);
-        }
-        
-        .what-yield-means, .trust, .final-cta {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* ============================================
-           HOW IT WORKS
-           ============================================ */
-        .steps {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .step {
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.4);
-            border-left: 3px solid #3d4535;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .step.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .step:hover {
-            transform: translateY(-4px) translateX(4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            border-left-width: 5px;
-        }
-        
-        .step h3 {
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .step:hover h3 {
-            color: #2d3428;
-        }
-        
-        .step p {
-            margin-bottom: 0;
-            color: #4a4a4a;
-        }
-        
-        /* ============================================
-           YIELD TYPES
-           ============================================ */
-        .yield-types {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .yield-type {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .yield-type.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .yield-type h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .yield-type p {
-            margin-bottom: 0;
-            color: #4a4a4a;
+        footer p {
             font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-weight: 100;
         }
         
-        /* ============================================
-           BENEFITS (TWO COLUMNS)
-           ============================================ */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            max-width: 1000px;
-            margin: 3rem auto 0;
+        footer a {
+            color: #fff0dc;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
         }
         
-        .benefit-column {
-            padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.5);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            transform: translateY(30px);
+        footer a:hover {
+            opacity: 0.8;
         }
         
-        .benefit-column.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .footer-acknowledgment {
+            max-width: 65ch;
+            margin: 0 auto 2rem;
+            font-style: italic;
         }
         
-        .benefit-column:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 0.7);
-        }
-        
-        .benefit-column h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .benefit-column ul {
-            list-style: none;
-        }
-        
-        .benefit-column li {
-            padding: 0.75rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: #4a4a4a;
-            line-height: 1.5;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        
-        .benefit-column li:hover {
-            transform: translateX(4px);
-            color: #2a2a2a;
-        }
-        
-        .benefit-column li:before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: #3d4535;
-            transition: transform 0.3s ease;
-        }
-        
-        .benefit-column li:hover:before {
-            transform: translateX(-4px);
+        .footer-credit {
+            font-size: 0.875rem;
+            opacity: 0.8;
         }
         
         /* ============================================
@@ -450,138 +420,45 @@
             }
         }
         
-        @keyframes floatSlow {
+        @keyframes bounce {
             0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
+                transform: translateY(0);
             }
             50% {
-                transform: translate(20px, 20px) rotate(5deg);
+                transform: translateY(8px);
             }
         }
         
-        /* Fade in sections on scroll */
-        .fade-in-section {
+        /* Fade in on scroll */
+        .fade-in {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
-        .fade-in-section.visible {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
         /* ============================================
-           FINAL CTA
+           RESPONSIVE
            ============================================ */
-        .final-cta {
-            text-align: center;
-            padding: 6rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(61, 69, 53, 0.03) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            animation: floatSlow 25s ease-in-out infinite;
-        }
-        
-        .final-cta h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .final-cta p {
-            font-size: 1.125rem;
-            color: #5a5a5a;
-            margin: 0 auto 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* ============================================
-           FOOTER
-           ============================================ */
-        footer {
-            padding: 3rem 0;
-            text-align: center;
-            color: #7a7a7a;
-            font-size: 0.875rem;
-            border-top: 1px solid rgba(61, 69, 53, 0.1);
-            background: rgba(250, 245, 232, 0.5);
-        }
-        
-        footer a {
-            color: #3d4535;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-            color: #2d3428;
-        }
-        
-        /* ============================================
-           RESPONSIVE BREAKPOINTS
-           ============================================ */
-        
-        /* Tablet */
         @media (min-width: 768px) {
-            h1 {
-                font-size: 3rem;
+            .logo {
+                font-size: 18.7vw !important;
             }
             
             .hero h1 {
                 font-size: 2.98rem;
             }
             
-            .logo {
-                font-size: 18.7vw !important;
-            }
-            
-            .steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .yield-types {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .benefits-grid {
+            .benefits {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
         
-        /* Desktop */
         @media (min-width: 1024px) {
-            section {
-                padding: 6rem 0;
-            }
-            
-            .hero {
-                padding: 8rem 0;
-            }
-            
-            .callout {
-                padding: 6rem 0;
-            }
-            
-            .callout p {
-                font-size: 1.5rem;
-                line-height: 1.8;
-            }
-            
             .logo {
                 font-size: 17vw !important;
             }
@@ -590,59 +467,74 @@
                 font-size: 3.4rem;
             }
             
-            .steps {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 2rem;
-            }
-            
-            .step {
-                padding: 1.5rem;
+            .text-bg-section p {
+                font-size: 1.65rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============================================
-         HERO SECTION
-         ============================================ -->
-    <section class="hero">
+    <!-- Section Navigation -->
+    <nav class="section-nav">
+        <div class="section-nav-item active" data-section="0">1 · Welcome</div>
+        <div class="section-nav-item" data-section="1">2 · Context</div>
+        <div class="section-nav-item" data-section="2">3 · What Yield Is</div>
+        <div class="section-nav-item" data-section="3">4 · How It Works</div>
+        <div class="section-nav-item" data-section="4">5 · What Generates Yield</div>
+        <div class="section-nav-item" data-section="5">6 · For You</div>
+        <div class="section-nav-item" data-section="6">7 · Verification</div>
+        <div class="section-nav-item" data-section="7">8 · Begin</div>
+    </nav>
+
+    <!-- 1: HERO / WELCOME -->
+    <section class="hero" id="section-0">
         <div class="container">
             <h1 class="logo">Yield.</h1>
-            <h1 class="display">Turn your garden into passive income.</h1>
+            <h1>Turn your garden into income.</h1>
             <p>Yield recognises and supports your garden's ecological value — rewarding stewardship that restores biodiversity, soils, water, canopy, and habitat.</p>
-            <a href="#how-it-works" class="btn">Learn how it works</a>
+            <a href="#section-1" class="scroll-arrow">
+                Get Started
+                <span class="arrow-icon">↓</span>
+            </a>
         </div>
     </section>
 
-    <!-- ============================================
-         CALLOUT
-         ============================================ -->
-    <section class="callout fade-in-section">
+    <!-- 2: CONTEXT (GREEN BACKGROUND) -->
+    <section class="text-bg-section" id="section-1">
         <div class="container">
-            <p>As native landscapes have been cleared and simplified, our cities have lost biodiversity, canopy, soils, and water — yet every garden still holds the potential to restore what was lost.</p>
+            <p>Most of the Indigenous landscapes that once covered Melbourne have been cleared or heavily altered. Biodiversity in our cities is now at historic lows. Tree canopy is shrinking, living soils are depleted, and rain that once fed ecosystems is rapidly lost through stormwater drains.</p>
+            <p>Yet every garden still holds the potential to restore some of what was lost.</p>
+            <div class="arrow-center">
+                <a href="#section-2" class="scroll-arrow" style="color: #fff0dc;">
+                    Learn More
+                    <span class="arrow-icon">↓</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- ============================================
-         WHAT "YIELD" MEANS
-         ============================================ -->
-    <section class="what-yield-means fade-in-section">
+    <!-- 3: WHAT YIELD IS -->
+    <section class="content-section text-center fade-in" id="section-2">
         <div class="container">
-            <div class="section-header">What Yield Is</div>
+            <h2>What Yield Is</h2>
             <p>Yield is the annual return you receive when your garden delivers real ecological outcomes.</p>
             <p>It's not an offset. It's not a donation.</p>
             <p>Yield is recognition of value you're already creating — and an incentive to create more.</p>
             <p>Sponsors fund gardens that deliver real, local ecological outcomes. You receive that support year after year, as long as those outcomes continue.</p>
+            <div class="arrow-center">
+                <a href="#section-3" class="scroll-arrow">
+                    How It Works
+                    <span class="arrow-icon">↓</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- ============================================
-         HOW IT WORKS
-         ============================================ -->
-    <section id="how-it-works" class="fade-in-section">
+    <!-- 4: HOW IT WORKS -->
+    <section class="content-section alt fade-in" id="section-3">
         <div class="container">
-            <div class="section-header">How It Works</div>
+            <h2>How It Works</h2>
             <div class="steps">
                 <div class="step">
                     <h3>1. Discover</h3>
@@ -661,49 +553,58 @@
                     <p>Receive annual income or in-kind support while your garden continues to perform.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         WHAT CAN GENERATE YIELD
-         ============================================ -->
-    <section class="fade-in-section">
-        <div class="container">
-            <div class="section-header">What Can Generate Yield</div>
-            <div class="yield-types">
-                <div class="yield-type">
-                    <h3>Habitat</h3>
-                    <p>Indigenous plants that support local bird, insect, and animal species.</p>
-                </div>
-                <div class="yield-type">
-                    <h3>Pollinators</h3>
-                    <p>Flowering natives that sustain bees, butterflies, and other essential species.</p>
-                </div>
-                <div class="yield-type">
-                    <h3>Canopy</h3>
-                    <p>Trees and shrubs that provide measurable shade, cooling, and carbon storage.</p>
-                </div>
-                <div class="yield-type">
-                    <h3>Cooling</h3>
-                    <p>Vegetation that reduces urban heat and improves neighbourhood climate.</p>
-                </div>
-                <div class="yield-type">
-                    <h3>Soil</h3>
-                    <p>Healthy, living ground cover that supports water retention and biodiversity below the surface.</p>
-                </div>
+            <div class="arrow-center">
+                <a href="#section-4" class="scroll-arrow">
+                    What Generates Yield
+                    <span class="arrow-icon">↓</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         BENEFITS (HOMEOWNERS + SPONSORS)
-         ============================================ -->
-    <section class="fade-in-section">
+    <!-- 5: WHAT CAN GENERATE YIELD -->
+    <section class="content-section fade-in" id="section-4">
         <div class="container">
-            <div class="benefits-grid">
-                <div class="benefit-column">
-                    <h2>For Homeowners</h2>
-                    <p style="margin-bottom: 1.5rem; color: #5a5a5a;">Designed to be simple, voluntary, and low-risk.</p>
+            <h2>What Can Generate Yield</h2>
+            <div class="yield-grid">
+                <div class="yield-item">
+                    <h3>Habitat</h3>
+                    <p>Indigenous plants that support local bird, insect, and animal species.</p>
+                </div>
+                <div class="yield-item">
+                    <h3>Pollinators</h3>
+                    <p>Flowering natives that sustain bees, butterflies, and other essential species.</p>
+                </div>
+                <div class="yield-item">
+                    <h3>Canopy</h3>
+                    <p>Trees and shrubs that provide measurable shade, cooling, and carbon storage.</p>
+                </div>
+                <div class="yield-item">
+                    <h3>Cooling</h3>
+                    <p>Vegetation that reduces urban heat and improves neighbourhood climate.</p>
+                </div>
+                <div class="yield-item">
+                    <h3>Soil</h3>
+                    <p>Healthy, living ground cover that supports water retention and biodiversity below the surface.</p>
+                </div>
+            </div>
+            <div class="arrow-center">
+                <a href="#section-5" class="scroll-arrow">
+                    For Homeowners & Sponsors
+                    <span class="arrow-icon">↓</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6: BENEFITS (HOMEOWNERS + SPONSORS) -->
+    <section class="content-section alt fade-in" id="section-5">
+        <div class="container">
+            <h2>For Homeowners & Sponsors</h2>
+            <div class="benefits">
+                <div class="benefit-box">
+                    <h3>For Homeowners</h3>
+                    <p class="subtitle">Designed to be simple, voluntary, and low-risk.</p>
                     <ul>
                         <li>No upfront cost to participate</li>
                         <li>Full control and privacy retained</li>
@@ -712,9 +613,9 @@
                         <li>Your property remains entirely yours</li>
                     </ul>
                 </div>
-                <div class="benefit-column">
-                    <h2>For Sponsors</h2>
-                    <p style="margin-bottom: 1.5rem; color: #5a5a5a;">Designed for real, place-based ecological impact.</p>
+                <div class="benefit-box">
+                    <h3>For Sponsors</h3>
+                    <p class="subtitle">Designed for real, place-based ecological impact.</p>
                     <ul>
                         <li>Real, verifiable ecological outcomes in specific neighbourhoods</li>
                         <li>Transparency through independent verification systems</li>
@@ -724,55 +625,64 @@
                     </ul>
                 </div>
             </div>
+            <div class="arrow-center">
+                <a href="#section-6" class="scroll-arrow">
+                    Trust & Verification
+                    <span class="arrow-icon">↓</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- ============================================
-         TRUST & VERIFICATION
-         ============================================ -->
-    <section class="trust fade-in-section">
+    <!-- 7: TRUST & VERIFICATION -->
+    <section class="content-section text-center fade-in" id="section-6">
         <div class="container">
-            <div class="section-header">Trust & Verification</div>
+            <h2>Trust & Verification</h2>
             <p>Every garden that generates Yield is independently verified through The Ecological Registry.</p>
             <p>Outcomes are measured against Registry standards and recorded annually. Your address and personal details remain private. Participation is voluntary and can be paused or ended at any time.</p>
             <p>You decide what information is shared, and with whom.</p>
+            <div class="arrow-center">
+                <a href="#section-7" class="scroll-arrow">
+                    Begin Your Journey
+                    <span class="arrow-icon">↓</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- ============================================
-         FINAL CTA
-         ============================================ -->
-    <section class="final-cta fade-in-section">
+    <!-- 8: FINAL CTA -->
+    <section class="content-section alt text-center fade-in" id="section-7">
         <div class="container">
             <h2>Begin</h2>
-            <p>If your garden creates ecological value — or could — it can now generate Yield.</p>
-            <p>This isn't theoretical. It's already happening.</p>
+            <p style="font-size: 1.25rem; max-width: 50ch; margin: 0 auto 1.5rem;">If your garden creates ecological value — or could — it can now generate Yield.</p>
+            <p style="font-size: 1.125rem; max-width: 50ch; margin: 0 auto 2.5rem;">This isn't theoretical. It's already happening.</p>
             <a href="#" class="btn">Explore your garden's potential</a>
         </div>
     </section>
 
-    <!-- ============================================
-         FOOTER
-         ============================================ -->
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>YIELD is part of the <a href="#">Gardener & Son</a> ecological garden ecosystem.</p>
-            <p>2 Churchill Street, Mont Albert 3127</p>
+            <p class="footer-acknowledgment">
+                At Gardener & Son, we acknowledge the Traditional Custodians of the land on which we live and work, and honour their enduring connection to Country. The living systems that once flourished here were not lost to time, but to disconnection. Our work seeks to rekindle that relationship, restoring native ecologies and weaving biodiversity back into the urban fabric — each garden a quiet act of remembrance and renewal.
+            </p>
+            <p class="footer-credit">
+                Lovingly made in Melbourne by <a href="https://www.gardenerandson.com">Gardener & Son</a>.
+            </p>
+            <p class="footer-credit" style="margin-top: 1rem;">
+                2 Churchill Street, Mont Albert 3127
+            </p>
         </div>
     </footer>
 
     <script>
-        // ============================================
-        // INTERSECTION OBSERVER FOR SCROLL ANIMATIONS
-        // ============================================
-        
+        // Intersection Observer for fade-in sections
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1
+            threshold: 0.15
         };
         
-        // Fade in sections on scroll
         const fadeInObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -781,62 +691,48 @@
             });
         }, observerOptions);
         
-        // Observe all fade-in sections
-        document.querySelectorAll('.fade-in-section').forEach(section => {
-            fadeInObserver.observe(section);
+        document.querySelectorAll('.fade-in').forEach(el => {
+            fadeInObserver.observe(el);
         });
         
-        // Observe section headers for underline animation
-        document.querySelectorAll('.section-header').forEach(header => {
-            fadeInObserver.observe(header);
-        });
+        // Section navigation active state
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.section-nav-item');
         
-        // Staggered animation for steps
-        const stepObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
+                    const sectionId = entry.target.id;
+                    const sectionIndex = sectionId.split('-')[1];
+                    
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.dataset.section === sectionIndex) {
+                            item.classList.add('active');
+                        }
+                    });
                 }
             });
-        }, observerOptions);
-        
-        document.querySelectorAll('.step').forEach(step => {
-            stepObserver.observe(step);
+        }, {
+            threshold: 0.5
         });
         
-        // Staggered animation for yield types
-        const yieldTypeObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 150);
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+        
+        // Click navigation
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const sectionIndex = item.dataset.section;
+                const targetSection = document.getElementById(`section-${sectionIndex}`);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        }, observerOptions);
-        
-        document.querySelectorAll('.yield-type').forEach(type => {
-            yieldTypeObserver.observe(type);
         });
         
-        // Benefit columns animation
-        const benefitObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 200);
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.benefit-column').forEach(column => {
-            benefitObserver.observe(column);
-        });
-        
-        // Smooth scroll for anchor links
+        // Smooth scroll for all links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
