@@ -11,7 +11,7 @@
     <!-- Google Fonts: Fraunces (Display) + Inter (Body/System) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@100;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100;0,700;0,800;1,100&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         /* ============================================
@@ -77,6 +77,8 @@
         }
         
         p {
+            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+            font-weight: 100;
             margin-bottom: 1.25rem;
             max-width: 65ch;
         }
@@ -135,10 +137,34 @@
         }
         
         .hero p {
+            font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
             font-size: 1.25rem;
             color: #5a5a5a;
             max-width: 40ch;
             margin: 0 auto 3rem;
+            font-weight: 100;
+            font-style: italic;
+        }
+        
+        /* ============================================
+           CALLOUT SECTION
+           ============================================ */
+        .callout {
+            background: #3d4535;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .callout .container {
+            max-width: 900px;
+        }
+        
+        .callout p {
+            color: #fff0dc;
+            font-size: 1.35rem;
+            line-height: 1.7;
+            max-width: 100%;
+            margin-bottom: 0;
         }
         
         /* ============================================
@@ -177,7 +203,7 @@
             font-weight: 600;
         }
         
-        .insight, .what-yield-means, .trust, .final-cta {
+        .what-yield-means, .trust, .final-cta {
             max-width: 800px;
             margin: 0 auto;
         }
@@ -350,6 +376,15 @@
                 padding: 8rem 0;
             }
             
+            .callout {
+                padding: 6rem 0;
+            }
+            
+            .callout p {
+                font-size: 1.5rem;
+                line-height: 1.8;
+            }
+            
             .logo {
                 font-size: 20vw !important;
             }
@@ -378,20 +413,17 @@
         <div class="container">
             <h1 class="logo">Yield.</h1>
             <h1 class="display">Turn your garden into income.</h1>
-            <p>The ecological value your garden can create can now support you.</p>
+            <p>Yield recognises and supports your garden's ecological value, rewarding stewardship that restores biodiversity, soils, water, canopy, and habitat.</p>
             <a href="#how-it-works" class="btn">Learn how it works</a>
         </div>
     </section>
 
     <!-- ============================================
-         THE INSIGHT
+         CALLOUT
          ============================================ -->
-    <section class="insight">
+    <section class="callout">
         <div class="container">
-            <div class="section-header">The Insight</div>
-            <p>All urban gardens hold the potential to unlock real ecological value — habitat for native species, cooler streets, healthier soil, canopy cover.</p>
-            <p>But without measurement, recognition, and support, that potential remains unrealised.</p>
-            <p><strong class="display">Yield changes that.</strong></p>
+            <p>As native landscapes have been cleared and simplified, our cities have lost biodiversity, canopy, soils, and water. Yet every garden still holds the potential to restore what was lost.</p>
         </div>
     </section>
 
@@ -400,7 +432,6 @@
          ============================================ -->
     <section class="what-yield-means">
         <div class="container">
-            <div class="section-header">What "Yield" Means</div>
             <p>Yield is the annual return you receive when the ecological outcomes your garden delivers are supported by sponsors.</p>
             <p>It's not an offset. It's not a donation. It's recognition of value you're already creating — and an incentive to create more.</p>
             <p>Sponsors fund gardens that deliver real, local ecological outcomes. You receive that support, year after year, as long as those outcomes continue.</p>
